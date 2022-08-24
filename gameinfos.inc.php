@@ -13,54 +13,54 @@
 $gameinfos = [
 
     'custom_buy_button' => [
-        'url' => 'https://www.fowers.games/collections/homepage-products/products/hardback',
-        'label' => 'Fowers Games',
+        'url' => 'https://www.arcanewonders.com/product/air-land-sea/',
+        'label' => 'Arcane Wonders',
     ],
 
     // Name of the game in English (will serve as the basis for translation) 
-    'game_name' => 'Hardback',
+    'game_name' => 'Air, Land & Sea',
 
     // Game designer (or game designers, separated by commas)
-    'designer' => 'Jeff Beck, Tim Fowers',
+    'designer' => 'Jon Perry',
 
     // Game artist (or game artists, separated by commas)
-    'artist' => 'Ryan Goldsberry',
+    'artist' => 'Stephen Gibson',
 
     // Year of FIRST publication of this game. Can be negative.
-    'year' => 2018,
+    'year' => 2019,
 
     // Game publisher (use empty string if there is no publisher)
-    'publisher' => 'Fowers Games',
+    'publisher' => 'Arcane Wonders',
 
     // Url of game publisher website
-    'publisher_website' => 'https://www.fowers.games/',
+    'publisher_website' => 'https://www.arcanewonders.com',
 
     // Board Game Geek ID of the publisher
-    'publisher_bgg_id' => 34669,
+    'publisher_bgg_id' => 17812,
 
     // Board game geek ID of the game
-    'bgg_id' => 223750,
+    'bgg_id' => 247367,
 
     // Players configuration that can be played (ex: 2 to 4 players)
-    'players' => [1, 2, 3, 4, 5],
+    'players' => [2],
 
     // Suggest players to play with this number of players. Must be null if there is no such advice, or if there is only one possible player configuration.
-    'suggest_player_number' => 3,
+    'suggest_player_number' => null,
 
     // Discourage players to play with these numbers of players. Must be null if there is no such advice.
     'not_recommend_player_number' => null,
 
     // Estimated game duration, in minutes (used only for the launch, afterward the real duration is computed)
-    'estimated_duration' => 60,
+    'estimated_duration' => 20,
 
     // Time in second add to a player when "giveExtraTime" is called (speed profile = fast)
-    'fast_additional_time' => 60,
+    'fast_additional_time' => 20,
 
     // Time in second add to a player when "giveExtraTime" is called (speed profile = medium)
-    'medium_additional_time' => 90,
+    'medium_additional_time' => 40,
 
     // Time in second add to a player when "giveExtraTime" is called (speed profile = slow)
-    'slow_additional_time' => 150,
+    'slow_additional_time' => 90,
 
     // If you are using a tie breaker in your game (using "player_score_aux"), you must describe here
     // the formula used to compute "player_score_aux". This description will be used as a tooltip to explain
@@ -68,11 +68,11 @@ $gameinfos = [
     // Note: if you are NOT using any tie breaker, leave the empty string.
     //
     // Example: 'tie_breaker_description' => totranslate( "Number of remaining cards in hand" ),
-    'tie_breaker_description' => totranslate('Ink'),
+    'tie_breaker_description' => "",
 
     // If in the game, all losers are equal (no score to rank them or explicit in the rules that losers are not ranked between them), set this to true 
     // The game end result will display "Winner" for the 1st player and "Loser" for all other players
-    'losers_not_ranked' => false,
+    'losers_not_ranked' => true,
 
     // Allow to rank solo games for games where it's the only available mode (ex: Thermopyles). Should be left to false for games where solo mode exists in addition to multiple players mode.
     'solo_mode_ranked' => false,
@@ -86,7 +86,7 @@ $gameinfos = [
     // Language dependency. If false or not set, there is no language dependency. If true, all players at the table must speak the same language.
     // If an array of shortcode languages such as array( 1 => 'en', 2 => 'fr', 3 => 'it' ) then all players at the table must speak the same language, and this language must be one of the listed languages.
     // NB: the default will be the first language in this list spoken by the player, so you should list them by popularity/preference.
-    'language_dependency' => [1 => 'en', 2 => 'de', 3 => 'fr'],
+    'language_dependency' => false,
 
     // Complexity of the game, from 0 (extremely simple) to 5 (extremely complex)
     'complexity' => 2,
@@ -95,13 +95,13 @@ $gameinfos = [
     'luck' => 3,
 
     // Strategy of the game, from 0 (no strategy can be setup) to 5 (totally based on strategy)
-    'strategy' => 2,
+    'strategy' => 3,
 
     // Diplomacy of the game, from 0 (no interaction in this game) to 5 (totally based on interaction and discussion between players)
-    'diplomacy' => 1,
+    'diplomacy' => 0,
 
     // Colors attributed to players
-    'player_colors' => ["ff0000", "008000", "0000ff", "982fff", "ffa500"],
+    'player_colors' => ["982fff", "ffa500"],
 
     // Favorite colors support : if set to "true", support attribution of favorite colors based on player's preferences (see reattributeColorsBasedOnPreferences PHP method)
     // NB: this parameter is used only to flag games supporting this feature; you must use (or not use) reattributeColorsBasedOnPreferences PHP method to actually enable or disable the feature.
@@ -122,9 +122,9 @@ $gameinfos = [
     // Each paragraph must be wrapped with totranslate() for translation and should not contain html (plain text without formatting).
     // A good length for this text is between 100 and 150 words (about 6 to 9 lines on a standard display)
     'presentation' => [
-        totranslate("As an aspiring 19th-century novelist, you're paid by the word to complete romance, mystery, adventure, and horror novels. Start with your own personal deck of letter cards, use them to acquire new cards, and reshuffle your deck throughout the game."),
-        totranslate('Specialize your deck in certain genres to exploit card combinations, and press your luck with ink to draw extra cards - but make sure you can still string a word together!'),
-        totranslate('Earn enough prestige to complete your masterpiece and be recognized as the finest novelist of the age.'),
+        totranslate("In Air, Land, & Sea, two players participate in a series of Battles, with the objective to control two of the three Theaters of war after both players have played all of their Battle cards, or convince your opponent to withdraw!"),
+        totranslate("As Supreme Commander of your country's military forces, you must carefully deploy your forces across three possible theaters of war: Air, Land, and Sea.")
+        totranslate("At the start of each battle, you will be dealt a hand of six cards. You will not draw additional cards during the Battle, so you must formulate your strategy based on only these cards. Players take turns playing Battle cards one at a time, until all cards have been played, or one player decides to withdraw."),
     ],
 
     // Games categories
@@ -134,7 +134,7 @@ $gameinfos = [
     //  http://en.doc.boardgamearena.com/Game_meta-information:_gameinfos.inc.php
     //  IMPORTANT: this list should be ORDERED, with the most important tag first.
     //  IMPORTANT: it is mandatory that the FIRST tag is 1, 2, 3 and 4 (= game category)
-    'tags' => [2, 12, 200, 210],
+    'tags' => [3, 11, 30, 115, 208]
 
 
     //////// BGA SANDBOX ONLY PARAMETERS (DO NOT MODIFY)
