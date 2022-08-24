@@ -1,0 +1,484 @@
+@import url(https://fonts.googleapis.com/css2?family=Almendra+Display&family=Big+Shoulders+Inline+Text:wght@900&family=Bodoni+Moda:wght@700&family=Finger+Paint&family=New+Rocker&display=swap);
+@font-face {
+  font-family: "Deutsch Gothic";
+  src: url(Deutsch-Gothic.woff2) format("woff2"),
+    url(Deutsch-Gothic.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@layer base {
+  .ring,
+  .ring-2 {
+    --tw-ring-offset-shadow: 0 0 transparent !important;
+  }
+  .ring {
+    --tw-ring-shadow: 0 0 0 6px var(--tw-ring-color) !important;
+  }
+  .ring-2 {
+    --tw-ring-shadow: 0 0 0 2px var(--tw-ring-color) !important;
+  }
+  button:focus {
+    outline: none;
+  }
+}
+
+.tailwind svg.inline {
+  vertical-align: -3px;
+}
+
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .touch-none {
+    touch-action: none;
+  }
+  .adjust-none {
+    text-size-adjust: none;
+  }
+}
+
+.chevron {
+  transition: transform 0.3s ease-out;
+}
+
+.chevron.collapsed {
+  transform: rotate(-90deg);
+}
+
+.title {
+  text-shadow: -0.5px 0 rgba(0, 0, 0, 0.5), 0.5px 0.5px rgba(255, 255, 255, 0.5);
+}
+
+.buttongroup {
+  @apply mb-1 ml-2 rounded-lg shadow overflow-hidden whitespace-nowrap cursor-pointer text-14 text-center divide-x divide-white;
+}
+
+.button {
+  @apply uppercase px-2 transition-all duration-300 cursor-pointer font-bold;
+}
+
+.button.black {
+  @apply bg-black text-white hover:bg-gray-100 hover:text-black;
+}
+
+.button.blue {
+  @apply bg-blue-700 text-white hover:bg-blue-100 hover:text-blue-700;
+}
+
+.button.blue.active {
+  @apply bg-blue-100 text-blue-700;
+}
+
+.button.red {
+  @apply bg-red-700 text-white hover:bg-red-100 hover:text-red-700;
+}
+
+.button.disabled {
+  @apply cursor-not-allowed bg-gray-600 text-gray-300;
+}
+
+.cardholder {
+  transition: transform 0.6s ease-out;
+  perspective: 600px;
+  z-index: 1;
+}
+
+.dragging .cardholder {
+  transition-duration: 0.3s;
+}
+
+.gap {
+  transition: width 0.6s ease-out;
+  width: 0;
+}
+
+.card {
+  transition: transform 0.6s cubic-bezier(0.7, 1.2, 1, 1), all 0.6s ease-out;
+  transform-style: preserve-3d;
+  width: 8.75em;
+  height: 11em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tailwind.cardsize-1 .card {
+  font-size: 11.1px;
+}
+.tailwind.cardsize-2 .card {
+  font-size: 12.4px;
+}
+.tailwind.cardsize-3 .card {
+  font-size: 13.7px;
+}
+.tailwind.cardsize-4 .card {
+  font-size: 15px;
+}
+.tailwind.cardsize-5 .card {
+  font-size: 16.3px;
+}
+.tailwind.cardsize-6 .card {
+  font-size: 17.6px;
+}
+
+.card.timeless:not(.wild) {
+  width: 11em;
+  height: 8.75em;
+}
+
+.card.wild {
+  transform: rotateY(180deg);
+}
+
+.cardface {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.cardface.back {
+  @apply bg-gray-700;
+  background-image: url(wild.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transform: rotateY(180deg);
+}
+
+/* z-index needed for drag-and-drop ghost images */
+.cardface.front {
+  z-index: 1;
+}
+.card.wild .cardface.back {
+  z-index: 2;
+}
+
+.wildletter {
+  @apply text-blue-100;
+  font-size: 7em;
+  line-height: 150%;
+  font-family: "Bodoni Moda", serif;
+  text-shadow: -2px 2px theme("colors.blue.400"),
+    1px -1px theme("colors.blue.700"), 0 0 4px #0008;
+}
+
+.card .letter {
+  width: 100%;
+}
+
+.card.timeless .letter {
+  margin-top: 0;
+  width: 56.5%;
+}
+
+.card .benefits {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 37%;
+  overflow: hidden;
+}
+
+.card.timeless .benefits {
+  top: 15%;
+  bottom: 0;
+  left: unset;
+  right: 0;
+  width: 45%;
+  height: unset;
+}
+
+.card-starter .cardface.front {
+  @apply bg-gray-500;
+  background-image: url(starter.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-starter .letter {
+  @apply text-yellow-500;
+  margin-top: 18.6%;
+  font-size: 4.625em;
+  font-family: "Bodoni Moda", serif;
+  text-shadow: -1px 1px white, 1px -1px black, 0 0 4px black;
+}
+
+.card-adventure .cardface.front {
+  @apply bg-yellow-700;
+  background-image: url(adventure.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-adventure.timeless .cardface.front {
+  background-image: url(adventure-timeless.jpg);
+}
+
+.card-adventure .letter {
+  @apply text-yellow-400;
+  margin-top: 17.2%;
+  margin-left: -2%;
+  font-size: 4.875em;
+  font-family: "Big Shoulders Inline Text", serif;
+  text-shadow: -2px 0px 8px theme("colors.red.500"),
+    6px 2px theme("colors.yellow.900");
+}
+
+.card-adventure .letter.letter-Q {
+  font-size: 4.15em;
+}
+
+.card-adventure .letter.letter-M,
+.card-adventure .letter.letter-N,
+.card-adventure .letter.letter-W {
+  font-size: 4.5em;
+  line-height: 108%;
+}
+
+.card-horror .cardface.front {
+  @apply bg-green-900;
+  background-image: url(horror.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-horror.timeless .cardface.front {
+  background-image: url(horror-timeless.jpg);
+}
+
+.card-horror .letter {
+  @apply text-green-400;
+  font-size: 5.25em;
+  margin-top: 17.2%;
+  line-height: 80%;
+  font-family: "Finger Paint", serif;
+  text-shadow: -2px 2px theme("colors.green.700"),
+    1px -1px theme("colors.green.200");
+}
+
+.card-horror .letter.letter-C,
+.card-horror .letter.letter-F,
+.card-horror .letter.letter-T,
+.card-horror .letter.letter-V {
+  margin-top: 20%;
+}
+
+.card-horror .letter.letter-E {
+  margin-top: 18.6%;
+}
+
+.card-horror .letter.letter-I,
+.card-horror .letter.letter-R {
+  margin-top: 21.5%;
+}
+
+.card-horror .letter.letter-J,
+.card-horror .letter.letter-Z {
+  margin-top: 14%;
+}
+
+.card-horror .letter.letter-Q {
+  font-size: 4.8125em;
+  margin-top: 21.5%;
+}
+
+.card-horror.timeless .letter {
+  margin-top: 4%;
+}
+
+.card-romance .cardface.front {
+  @apply bg-red-800;
+  background-image: url(romance.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-romance.timeless .cardface.front {
+  background-image: url(romance-timeless.jpg);
+}
+
+.card-romance .letter {
+  @apply text-yellow-300;
+  margin-top: 13%;
+  font-size: 6em;
+  font-family: "Almendra Display", serif;
+  text-shadow: 1px 0px theme("colors.red.300"), 1px 1px theme("colors.red.500");
+}
+
+.card-romance .letter.letter-A,
+.card-romance .letter.letter-M,
+.card-romance .letter.letter-K {
+  margin-top: 9.5%;
+}
+
+.card-romance .letter.letter-G,
+.card-romance .letter.letter-Q {
+  margin-top: 7.2%;
+}
+
+.card-romance .letter.letter-I,
+.card-romance .letter.letter-J {
+  font-size: 5.25em;
+}
+
+.card-romance.timeless .letter {
+  margin-top: 0;
+}
+
+.card-mystery .cardface.front {
+  @apply bg-blue-500;
+  background-image: url(mystery.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-mystery.timeless .cardface.front {
+  background-image: url(mystery-timeless.jpg);
+}
+
+.card-mystery .letter {
+  @apply text-blue-800;
+  margin-top: 15%;
+  font-size: 5.25em;
+  font-family: "New Rocker", serif;
+  text-shadow: -1px 1px theme("colors.blue.100"),
+    1px -1px theme("colors.gray.900");
+}
+
+.card-mystery .letter.letter-J,
+.card-mystery .letter.letter-L,
+.card-mystery .letter.letter-Q {
+  font-size: 4.875em;
+  margin-top: 12%;
+}
+
+.card-mystery .letter.letter-N {
+  font-size: 4.875em;
+  margin-top: 14%;
+}
+
+.card-mystery.timeless .letter {
+  margin-top: 1%;
+}
+
+.bookmark {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0.1875em;
+  width: 1.75em;
+  height: 4em;
+}
+
+.bookmark .icon {
+  margin-left: 0.125em;
+  margin-bottom: 0.25em;
+  font-size: 1.5em;
+}
+
+.timeless .bookmark {
+  left: 0;
+  top: unset;
+  bottom: 0.1875em;
+  width: 4em;
+  height: 1.75em;
+}
+
+.timeless .bookmark .icon {
+  margin-left: 0;
+  margin-bottom: 0.125em;
+}
+
+.timeless .bookmark div:last-child {
+  @apply pl-1;
+  padding-top: 0.125em;
+}
+
+.card-adventure .bookmark {
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.bookmark .star {
+  margin-left: -0.125em;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Player panels */
+
+.tailwind.panelbg {
+  clear: both;
+  display: grid;
+  grid-template:
+    "left . right" auto
+    "bottom bottom bottom" auto
+    / 110px auto 115px;
+}
+
+.text-noshadow {
+  text-shadow: none;
+}
+
+.panel-left {
+  grid-area: left;
+}
+
+.panel-right {
+  grid-area: right;
+}
+
+.panel-bottom {
+  grid-area: bottom;
+}
+
+.panel-ink {
+  background: no-repeat url(panel-ink.png);
+  height: 62px;
+  padding: 0 3px 6px;
+}
+
+.panel-opt {
+  @apply rounded-full bg-white bg-opacity-75 text-black border-3 border-dashed border-gray-800 text-17 text-center font-bold shadow;
+  width: 45px;
+  height: 45px;
+  line-height: 39px;
+}
+
+.panel-signature {
+  min-height: 120px;
+  margin-right: 100px;
+}
+
+.panel-novel {
+  font-family: "Deutsch Gothic", serif;
+}
+
+.genreCounts {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.genreCounts div {
+  transition: width 0.6s ease-out;
+}
+
+.genreCounts svg {
+  height: 22px;
+}
+
+.icon-left,
+.icon-right {
+  width: 0.7em;
+}
